@@ -2,11 +2,8 @@ using namespace std;
 
 int main () {
 
- std::cout <<   
-      
-
- 
-
+ std::cout <<  "Wello World";
+   return 0;   
 
 }
 
