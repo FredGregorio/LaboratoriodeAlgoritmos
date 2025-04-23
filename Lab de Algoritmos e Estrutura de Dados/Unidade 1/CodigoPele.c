@@ -1,12 +1,10 @@
 #include <stdio.h>
-using namespace std;
 
 struct jogador {
 
 char nome [20];
-float salario;
-unsigned gold;
-
+int salario;
+char posição [20];
 
 };
 
@@ -14,11 +12,14 @@ unsigned gold;
 int main () {
 
 
-struct jogador pele = {"Pele, 300"};
-struct jogador *ptr = &pele;
+struct jogador pele = {"Pele", 30, "Atacante"};
+struct jogador* ptr = &pele;
 
-printf ("Nome: %\n", ptr -> nome);
-printf ("Idade: %\n", ptr -> salario);
+printf ("Nome: %s\n", ptr -> nome);
+printf ("salario: %d\n", ptr -> salario);
+printf ("Posição: %s\n", ptr -> posição);
+
 return 0;
+
 
 }
