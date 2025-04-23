@@ -1,10 +1,21 @@
-void incrementa(int *num) {
-    (*num)++; // incrementa o valor apontado
-}
+#include <iostrea>
+using namespace std;
 
-int main() {
-    int a = 5;
-    incrementa(&a); // passa o endereço de a
-    printf("Valor de a: %d\n", a); // agora a vale 6
-}
+struct jogador {
 
+char nome [20];
+float salario;
+unsigned gold;
+
+
+};
+
+
+int main () {
+
+
+jogador pele;
+jogador* ptr = &pele;
+
+
+}
