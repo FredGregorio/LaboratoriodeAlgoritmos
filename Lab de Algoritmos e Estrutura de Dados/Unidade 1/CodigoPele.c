@@ -1,4 +1,4 @@
-#include <iostrea>
+#include <stdio.h>
 using namespace std;
 
 struct jogador {
