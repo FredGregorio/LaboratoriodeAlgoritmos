@@ -19,7 +19,16 @@ int main (){
 
       case 1:
       // ARRAY DE 1.000 ELEMENTOS
+      
+      //Função para atribuir valores ao vetor
 
+
+
+      //Funcão para calcular o tempo
+
+
+
+      //Função Para calcular o tempo de execução dos algoritmos de ordenação
 
 
 
