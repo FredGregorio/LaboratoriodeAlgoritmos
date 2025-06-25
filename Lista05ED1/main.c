@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "algoritmosordenacao.h"
-
+#include <stdio.h>
 
 
 int main (){
