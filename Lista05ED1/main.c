@@ -18,27 +18,69 @@ int main (){
    switch (tipoteste) {
 
       case 1:
+      // ARRAY DE 1.000 ELEMENTOS
 
-        printf("Teste Realizado com ARRAY 1.000 ELEMENTOS \n");
-      
+
+
+
+
+
+
+
+
+      printf("Teste Realizado com ARRAY 1.000 ELEMENTOS \n");
+      printf("TESTE FINALIZADO\n");
+
       break;
       
       case 2:
+      // ARRAY DE 100.000 ELEMENTOS
 
-         printf("Teste Realizado com ARRAY 100.000 ELEMENTOS \n");
+
+
+
+
+
+
+
+
+
+
+      printf("Teste Realizado com ARRAY 100.000 ELEMENTOS \n");
+      printf("TESTE FINALIZADO\n");
       
       break;
 
       case 3:
+      // ARRAY DE 1.000.000 ELEMENTOS
+
+
+
+
+
+
+
+
       
       printf("Teste Realizado com ARRAY de 1.000.000 ELEMENTOS \n");
+      printf("TESTE FINALIZADO\n");
 
       break;
 
       case 4:
+      //ARRAY DE CARACTERES
+
+
+
+
+
+
+
+
+
 
       printf("Teste Realizado com ARRAY de CARACTERES \n");
-
+      printf("TESTE FINALIZADO\n");
       
       break;
    
