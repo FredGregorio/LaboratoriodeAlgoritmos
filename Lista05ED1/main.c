@@ -2,206 +2,252 @@
 #include "algoritmosordenacao.h"
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 void preencherVetor (int *vetor, int tamanho) {
-   int i;
-   srand(time(NULL));
-   for (i = 0; i < tamanho; i++) {
+    for (int i = 0; i < tamanho; i++) {
         vetor[i] = rand() % 1000;
-
-}
-
+    }
 }
 
 void copiarVetor(int *origem, int *destino, int tamanho) {
-   int i;
-   for (i = 0; i < tamanho; i++) {
-      destino[i] = origem[i];
-   }
+    for (int i = 0; i < tamanho; i++) {
+        destino[i] = origem[i];
+    }
 }
 
 void imprimirVetor(int *vetor, int tamanho) {
-   int i;
-   for (i = 0; i < tamanho; i++) {
-      printf( "%d", vetor[i]);
-   }
-   printf("\n");
+    for (int i = 0; i < tamanho; i++) {
+        printf("%d ", vetor[i]);
+    }
+    printf("\n");
 }
 
-
 int main (){
-   int tamanho;
-   int tipoteste;
+    int tamanho;
+    int tipoteste;
 
+    srand(time(NULL)); // Chame apenas uma vez
 
-do {
-   printf("Como voce quer testar: \n");
-   printf("1 - ARRAY 1.000 ELEMENTOS \n");
-   printf("2 - ARRAY 100.000 ELEMENTOS \n");
-   printf("3 - ARRAY 1.000.000 ELEMENTOS \n");
-   printf("4 - ARRAY de CARACTERES \n");
-   printf("5 - Sair\n");
-   printf("Opcao: ");
-   scanf ("%d", &tipoteste);
+    do {
+        printf("Como voce quer testar: \n");
+        printf("1 - ARRAY 1.000 ELEMENTOS \n");
+        printf("2 - ARRAY 100.000 ELEMENTOS \n");
+        printf("3 - ARRAY 1.000.000 ELEMENTOS \n");
+        printf("4 - ARRAY de CARACTERES \n");
+        printf("5 - Sair\n");
+        printf("Opcao: ");
+        scanf ("%d", &tipoteste);
 
-   switch (tipoteste) {
+        switch (tipoteste) {
 
-      case 1: {
-         tamanho = 1000;
-         int *vetor_original = (int *)malloc(tamanho * sizeof(int));
-         int *vetor = (int *)malloc(tamanho * sizeof(int));
-         preencherVetor(vetor_original, tamanho);
+            case 1: {
+                tamanho = 1000;
+                int *vetor_original = (int *)malloc(tamanho * sizeof(int));
+                int *vetor = (int *)malloc(tamanho * sizeof(int));
+                preencherVetor(vetor_original, tamanho);
 
-         clock_t inicio, fim;
-         double tempo_gasto;
+                clock_t inicio, fim;
+                double tempo_gasto;
 
-         // Bubble Sort
-         copiarVetor(vetor_original, vetor, tamanho);
-         inicio = clock();
-         bubbleSort(vetor, tamanho);
-         fim = clock();
-         tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
-         printf("\nBubble Sort: %f segundos \n", tempo_gasto);
+                // Bubble Sort
+                copiarVetor(vetor_original, vetor, tamanho);
+                inicio = clock();
+                bubbleSort(vetor, tamanho);
+                fim = clock();
+                tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
+                printf("\nBubble Sort: %f segundos \n", tempo_gasto);
 
-         // Insertion Sort
-         copiarVetor(vetor_original, vetor, tamanho);
-         inicio = clock();
-         insertionSort(vetor, tamanho);
-         fim = clock();
-         tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
-         printf("\nInsertionSort: %f segundos \n", tempo_gasto);
+                // Insertion Sort
+                copiarVetor(vetor_original, vetor, tamanho);
+                inicio = clock();
+                insertionSort(vetor, tamanho);
+                fim = clock();
+                tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
+                printf("\nInsertionSort: %f segundos \n", tempo_gasto);
 
-         // Merge Sort
-         copiarVetor(vetor_original, vetor, tamanho);
-         inicio = clock();
-         mergeSort(vetor, tamanho);
-         fim = clock();
-         tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
-         printf("\nmergeSort: %f segundos \n", tempo_gasto);
+                // Merge Sort
+                copiarVetor(vetor_original, vetor, tamanho);
+                inicio = clock();
+                mergeSort(vetor, tamanho);
+                fim = clock();
+                tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
+                printf("\nmergeSort: %f segundos \n", tempo_gasto);
 
-         // Quick Sort
-         copiarVetor(vetor_original, vetor, tamanho);
-         inicio = clock();
-         quickSort(vetor, tamanho);
-         fim = clock();
-         tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
-         printf("\nQuickSort: %f segundos \n", tempo_gasto);
+                // Quick Sort
+                copiarVetor(vetor_original, vetor, tamanho);
+                inicio = clock();
+                quickSort(vetor, tamanho);
+                fim = clock();
+                tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
+                printf("\nQuickSort: %f segundos \n", tempo_gasto);
 
-         printf("\nTeste Realizado com ARRAY 1.000 ELEMENTOS\n");
-         printf("TESTE FINALIZADO\n");
+                printf("\nTeste Realizado com ARRAY 1.000 ELEMENTOS\n");
+                printf("TESTE FINALIZADO\n");
 
-         free(vetor_original);
-         free(vetor);
-         break;
-      }
-      
-      case 2:
-      // ARRAY DE 100.000 ELEMENTOS
-      tamanho = 100000;
+                free(vetor_original);
+                free(vetor);
+              
+                break;
+            }
 
-      
-         clock_t inicio, fim;
-         double tempo_gasto;
+            case 2: {
+                // ARRAY DE 100.000 ELEMENTOS
+                tamanho = 100000;
+                int *vetor_original = (int *)malloc(tamanho * sizeof(int));
+                int *vetor = (int *)malloc(tamanho * sizeof(int));
+                preencherVetor(vetor_original, tamanho);
 
-      int *vetor_original = (int *)malloc(tamanho *sizeof(int));
-      int *vetor = (int *)malloc(tamanho * sizeof(int));
+                clock_t inicio, fim;
+                double tempo_gasto;
 
-      preencherVetor (vetor_original, tamanho);
+                // Bubble Sort
+                copiarVetor(vetor_original, vetor, tamanho);
+                inicio = clock();
+                bubbleSort(vetor, tamanho);
+                fim = clock();
+                tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
+                printf("\nBubble Sort: %f segundos \n", tempo_gasto);
 
-      //Bubble Sort
-      copiarVetor(vetor_original, vetor, tamanho);
-      inicio = clock();
-      bubbleSort(vetor,tamanho);
-      fim = clock();
-      tempo_gasto = ((double)(fim - inicio))/ CLOCKS_PER_SEC;
-      printf("\nBubble Sort: %f segundos \n", tempo_gasto);
+                // Insertion Sort
+                copiarVetor(vetor_original, vetor, tamanho);
+                inicio = clock();
+                insertionSort(vetor, tamanho);
+                fim = clock();
+                tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
+                printf("\nInsertionSort: %f segundos \n", tempo_gasto);
 
-      // insertionSort
-      inicio = clock();
-      insertionSort(vetor,tamanho);
-      fim = clock();
-      tempo_gasto = ((double)(fim - inicio))/ CLOCKS_PER_SEC;
-      printf("\nInsertionSort: %f segundos \n", tempo_gasto);
+                // MergeSort
+                copiarVetor(vetor_original, vetor, tamanho);
+                inicio = clock();
+                mergeSort(vetor, tamanho);
+                fim = clock();
+                tempo_gasto = ((double)(fim - inicio))/ CLOCKS_PER_SEC;
+                printf("\nmergeSort: %f segundos \n", tempo_gasto);
 
-      // MergeSort
-      inicio = clock();
-      mergeSort(vetor,tamanho);
-      fim = clock();
-      tempo_gasto = ((double)(fim - inicio))/ CLOCKS_PER_SEC;
-      printf("\nmergeSort: %f segundos \n", tempo_gasto);
+                // QuickSort
+                copiarVetor(vetor_original, vetor, tamanho);
+                inicio = clock();
+                quickSort(vetor, tamanho);
+                fim = clock();
+                tempo_gasto = ((double)(fim - inicio))/ CLOCKS_PER_SEC;
+                printf("\nQuickSort: %f segundos \n", tempo_gasto);
 
-      // QuickSort
-      inicio = clock();
-      quickSort(vetor,tamanho);
-      fim = clock();
-      tempo_gasto = ((double)(fim - inicio))/ CLOCKS_PER_SEC;
-      printf("\nQuickSort: %f segundos \n", tempo_gasto);
+                printf("Teste Realizado com ARRAY 100.000 ELEMENTOS \n");
+                printf("TESTE FINALIZADO\n");
 
-      printf("Teste Realizado com ARRAY 100.000 ELEMENTOS \n");
-      printf("TESTE FINALIZADO\n");
-      
-      break;
+                free(vetor_original);
+                free(vetor);
+            
+                break;
+            }
 
-      case 3: {
-         // ARRAY DE 1.000.000 ELEMENTOS
-         tamanho = 1000000;
-         int *vetor_original = (int *)malloc(tamanho * sizeof(int));
-         int *vetor = (int *)malloc(tamanho * sizeof(int));
-         preencherVetor(vetor_original, tamanho);
+            case 3: {
+                // ARRAY DE 1.000.000 ELEMENTOS
+                tamanho = 1000000;
+                int *vetor_original = (int *)malloc(tamanho * sizeof(int));
+                int *vetor = (int *)malloc(tamanho * sizeof(int));
+                preencherVetor(vetor_original, tamanho);
 
-         clock_t inicio, fim;
-         double tempo_gasto;
+                clock_t inicio, fim;
+                double tempo_gasto;
 
-         // MergeSort
-         copiarVetor(vetor_original, vetor, tamanho);
-         inicio = clock();
-         mergeSort(vetor, tamanho);
-         fim = clock();
-         tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
-         printf("\nmergeSort: %f segundos \n", tempo_gasto);
+                // Bubble Sort
+                copiarVetor(vetor_original, vetor, tamanho);
+                inicio = clock();
+                bubbleSort(vetor, tamanho);
+                fim = clock();
+                tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
+                printf("\nBubble Sort: %f segundos \n", tempo_gasto);
 
-         // QuickSort
-         copiarVetor(vetor_original, vetor, tamanho);
-         inicio = clock();
-         quickSort(vetor, tamanho);
-         fim = clock();
-         tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
-         printf("\nQuickSort: %f segundos \n", tempo_gasto);
+                // Insertion Sort
+                copiarVetor(vetor_original, vetor, tamanho);
+                inicio = clock();
+                insertionSort(vetor, tamanho);
+                fim = clock();
+                tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
+                printf("\nInsertionSort: %f segundos \n", tempo_gasto);
 
-         printf("Teste Realizado com ARRAY de 1.000.000 ELEMENTOS \n");
-         printf("TESTE FINALIZADO\n");
+                // MergeSort
+                copiarVetor(vetor_original, vetor, tamanho);
+                inicio = clock();
+                mergeSort(vetor, tamanho);
+                fim = clock();
+                tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
+                printf("\nmergeSort: %f segundos \n", tempo_gasto);
 
-         free(vetor_original);
-         free(vetor);
-         break;
-      }
+                // QuickSort
+                copiarVetor(vetor_original, vetor, tamanho);
+                inicio = clock();
+                quickSort(vetor, tamanho);
+                fim = clock();
+                tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
+                printf("\nQuickSort: %f segundos \n", tempo_gasto);
 
-      case 4:
-      //ARRAY DE CARACTERES
+                printf("Teste Realizado com ARRAY de 1.000.000 ELEMENTOS \n");
+                printf("TESTE FINALIZADO\n");
 
+                free(vetor_original);
+                free(vetor);
+            
+                break;
+            }
 
+            case 4: {
+                tamanho = 10000; // Alterado para 10.000 elementos
+                char *vetor_original = (char *)malloc(tamanho * sizeof(char));
+                char *vetor = (char *)malloc(tamanho * sizeof(char));
 
+                // Preenche com caracteres aleatórios (A-Z)
+                for (int i = 0; i < tamanho; i++) {
+                    vetor_original[i] = 'A' + (rand() % 26);
+                }
 
+                clock_t inicio, fim;
+                double tempo_gasto;
 
+                // Bubble Sort
+                memcpy(vetor, vetor_original, tamanho * sizeof(char));
+                inicio = clock();
+                bubbleSort((int*)vetor, tamanho); // cast para reutilizar a função
+                fim = clock();
+                tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
+                printf("\nBubble Sort: %f segundos \n", tempo_gasto);
 
+                // Insertion Sort
+                memcpy(vetor, vetor_original, tamanho * sizeof(char));
+                inicio = clock();
+                insertionSort((int*)vetor, tamanho);
+                fim = clock();
+                tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
+                printf("\nInsertionSort: %f segundos \n", tempo_gasto);
 
+                // Merge Sort
+                memcpy(vetor, vetor_original, tamanho * sizeof(char));
+                inicio = clock();
+                mergeSort((int*)vetor, tamanho);
+                fim = clock();
+                tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
+                printf("\nmergeSort: %f segundos \n", tempo_gasto);
 
+                // Quick Sort
+                memcpy(vetor, vetor_original, tamanho * sizeof(char));
+                inicio = clock();
+                quickSort((int*)vetor, tamanho);
+                fim = clock();
+                tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
+                printf("\nQuickSort: %f segundos \n", tempo_gasto);
 
+                printf("Teste Realizado com ARRAY de CARACTERES (10.000 elementos)\n");
+                printf("TESTE FINALIZADO\n");
 
-      printf("Teste Realizado com ARRAY de CARACTERES \n");
-      printf("TESTE FINALIZADO\n");
-      
-      break;
-   
+                free(vetor_original);
+                free(vetor);
+             
+                break;
+            }
+        }
+    } while (tipoteste != 5);
 
-
-   }
-} while (tipoteste != 5);
-
-
-
-
-
-   return 0;
-
+    return 0;
 }
