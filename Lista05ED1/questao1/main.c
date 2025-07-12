@@ -31,9 +31,9 @@ void copiarVetorChar(char *origem, char *destino, int tamanho) {
 
 int main (){
     int tamanho;
-    int tipoteste;
+    int opcao;
 
-    srand(time(NULL)); // Chame apenas uma vez
+    srand(time(NULL)); 
 
     do {
         printf("Como voce quer testar: \n");
@@ -43,9 +43,9 @@ int main (){
         printf("4 - ARRAY de CARACTERES \n");
         printf("5 - Sair\n");
         printf("Opcao: ");
-        scanf ("%d", &tipoteste);
+        scanf ("%d", &opcao);
 
-        switch (tipoteste) {
+        switch (opcao) {
 
             case 1: {
                 tamanho = 1000;
@@ -254,7 +254,7 @@ int main (){
             }
         }
         
-    } while (tipoteste != 5);
+    } while (opcao != 5);
 
     return 0;
 }
