@@ -136,37 +136,7 @@ int main() {
                 break;
             }
             case 3: {
-                tamanho = 1000000;
-                int *vetor = malloc(tamanho * sizeof(int));
-                int *vetorOrdenado = malloc(tamanho * sizeof(int));
-                preencherVetor(vetor, tamanho);
-                copiarVetor(vetor, vetorOrdenado, tamanho);
-
-                printf("Digite o valor inteiro a ser buscado: ");
-                char buffer[32];
-                fgets(buffer, sizeof(buffer), stdin);
-                sscanf(buffer, "%d", &chave);
-
-                mergeSort(vetorOrdenado, tamanho);
-
-                clock_t inicio, fim;
-                double tempo;
-
-                inicio = clock();
-                int posSeq = buscaSequencial(vetor, tamanho, chave);
-                fim = clock();
-                tempo = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
-                printf("Busca Sequencial: %f segundos. Posicao Sequencial: %d\n", tempo, posSeq);
-
-                inicio = clock();
-                int posBin = buscaBinaria(vetorOrdenado, tamanho, chave);
-                fim = clock();
-                tempo = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
-                printf("Busca Binaria: %f segundos. Posicao Binaria: %d\n", tempo, posBin);
-
-                free(vetor);
-                free(vetorOrdenado);
-                break;
+               
             }
             case 4: {
                 getchar();
