@@ -58,7 +58,7 @@ int main() {
     char palavra[100];
 
     do {
-        printf("\nMenu de Testes de Busca:\n");
+        printf("\nComo voce quer testar:\n");
         printf("1 - Array com 1.000 elementos\n");
         printf("2 - Array com 100.000 elementos\n");
         printf("3 - Array com 1.000.000 elementos\n");
@@ -76,6 +76,7 @@ int main() {
                 copiarVetor(vetor, vetorOrdenado, tamanho);
 
                 printf("Digite o valor inteiro a ser buscado: ");
+                getchar(); // Limpa o buffer antes de ler o valor
                 scanf("%d", &chave);
 
                 // Ordena para usar a busca binaria
@@ -89,14 +90,14 @@ int main() {
                 int posSeq = buscaSequencial(vetor, tamanho, chave);
                 fim = clock();
                 tempo = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
-                printf("Busca Sequencial: %f segundos. Resultado: %d\n", tempo, posSeq);
+                printf("Busca Sequencial: %f segundos. Posicao Sequencial: %d\n", tempo, posSeq);
 
                 // Busca Binária
                 inicio = clock();
                 int posBin = buscaBinaria(vetorOrdenado, tamanho, chave);
                 fim = clock();
                 tempo = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
-                printf("Busca Binaria: %f segundos. Resultado: %d\n", tempo, posBin);
+                printf("Busca Binaria: %f segundos. Posicao Binaria: %d\n", tempo, posBin);
 
                 free(vetor);
                 free(vetorOrdenado);
@@ -110,6 +111,7 @@ int main() {
                 copiarVetor(vetor, vetorOrdenado, tamanho);
 
                 printf("Digite o valor inteiro a ser buscado: ");
+                getchar(); // Limpa o buffer antes de ler o valor
                 scanf("%d", &chave);
 
                 mergeSort(vetorOrdenado, tamanho);
@@ -121,13 +123,13 @@ int main() {
                 int posSeq = buscaSequencial(vetor, tamanho, chave);
                 fim = clock();
                 tempo = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
-                printf("Busca Sequencial: %f segundos. Resultado: %d\n", tempo, posSeq);
+                printf("Busca Sequencial: %f segundos. Posicao Sequencial: %d\n", tempo, posSeq);
 
                 inicio = clock();
                 int posBin = buscaBinaria(vetorOrdenado, tamanho, chave);
                 fim = clock();
                 tempo = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
-                printf("Busca Binaria: %f segundos. Resultado: %d\n", tempo, posBin);
+                printf("Busca Binaria: %f segundos. Posicao Binaria: %d\n", tempo, posBin);
 
                 free(vetor);
                 free(vetorOrdenado);
@@ -141,7 +143,9 @@ int main() {
                 copiarVetor(vetor, vetorOrdenado, tamanho);
 
                 printf("Digite o valor inteiro a ser buscado: ");
-                scanf("%d", &chave);
+                char buffer[32];
+                fgets(buffer, sizeof(buffer), stdin);
+                sscanf(buffer, "%d", &chave);
 
                 mergeSort(vetorOrdenado, tamanho);
 
@@ -152,24 +156,24 @@ int main() {
                 int posSeq = buscaSequencial(vetor, tamanho, chave);
                 fim = clock();
                 tempo = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
-                printf("Busca Sequencial: %f segundos. Resultado: %d\n", tempo, posSeq);
+                printf("Busca Sequencial: %f segundos. Posicao Sequencial: %d\n", tempo, posSeq);
 
                 inicio = clock();
                 int posBin = buscaBinaria(vetorOrdenado, tamanho, chave);
                 fim = clock();
                 tempo = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
-                printf("Busca Binaria: %f segundos. Resultado: %d\n", tempo, posBin);
+                printf("Busca Binaria: %f segundos. Posicao Binaria: %d\n", tempo, posBin);
 
                 free(vetor);
                 free(vetorOrdenado);
                 break;
             }
             case 4: {
-                getchar(); // Limpa o buffer do teclado
+                getchar();
                 char texto[1000];
-                printf("Digite o texto (ate 999 caracteres):\n");
+                printf("Digite algum texto com no maximo 999 caracteres:\n");
                 fgets(texto, 1000, stdin);
-                texto[strcspn(texto, "\n")] = 0; // Remove o \n do final
+                texto[strcspn(texto, "\n")] = 0; 
 
                 printf("Digite a palavra a ser buscada:\n");
                 fgets(palavra, 100, stdin);
