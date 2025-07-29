@@ -10,7 +10,7 @@ typedef struct Titulo {
     struct Titulo *proximo;
 } Titulo;
 
-// Estrutura da lista encadeada
+
 typedef struct {
     Titulo *inicio;
 } Lista;
@@ -109,16 +109,16 @@ int main() {
     adicionarTitulo(&catalogo, "The Office", 2005, "Comedia");
     adicionarTitulo(&catalogo, "Game of Thrones", 2011, "Fantasia");
 
-    printf("\n   Catalogo de Filmes e Series    \n");
+    printf("\nCatalogo de Filmes e Series    \n");
     listarTitulosOrdenados(&catalogo);
 
-    printf("\n--- Buscar por Categoria: Drama    \n");
+    printf("\nBuscar por Categoria: Drama    \n");
     buscarPorCategoria(&catalogo, "Drama");
 
-    printf("\n    Buscar por Categoria: Comedia    \n");
+    printf("\nBuscar por Categoria: Comedia    \n");
     buscarPorCategoria(&catalogo, "Comedia");
 
-    printf("\n    Buscar por Categoria: Terror    \n");
+    printf("\nBuscar por Categoria: Terror    \n");
     buscarPorCategoria(&catalogo, "Terror");
 
     return 0;
